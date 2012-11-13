@@ -1,4 +1,4 @@
 #! /bin/sh
 
 BOOKS_PATH=~/文档
-tree $BOOKS_PATH >> ./books.txt
+tree $BOOKS_PATH > ./books.txt
