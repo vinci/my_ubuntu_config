@@ -1,0 +1,32 @@
+#! /usr/bin/env python
+
+import os,sys
+
+def main():
+	argc = len(sys.argv)
+	if argc < 2:
+		print "usage: ", sys.argv[0], " [dir] [suffix]"
+	path = sys.argv[1]
+	suffix = sys.argv[2]
+	os.chdir(path)
+	files = os.listdir(path)
+	rm = []
+	for fname in files:
+		s = fname.split('.')
+		s = s[-1]
+		if s != suffix:
+			rm.append(fname)
+	os.system("rm -fr temp.sh")
+	temp_sh = open("temp.sh", "w")
+	temp_sh.write("#! /bin/sh\n")
+	for s in rm:
+		temp_sh.write("rm -fr " + s + "\n")
+	temp_sh.close()
+	try:
+		os.system("chmod 700 temp.sh")
+		os.system("./temp.sh")
+		os.remove("./temp.sh")
+	except:
+		pass
+if __name__ == '__main__':
+	main()
