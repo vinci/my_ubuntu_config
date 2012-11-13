@@ -1,0 +1,24 @@
+#! /usr/bin/env python
+
+import ConfigParser
+import sys
+
+def main():
+	argc = len(sys.argv)
+	if (argc < 4):
+		print "usage: ", sys.argv[0], " [file] [sec] [key]"
+		sys.exit(0)
+	file = sys.argv[1]
+	sec = sys.argv[2]
+	key = sys.argv[3]
+	try:
+		config = ConfigParser.ConfigParser()
+		config.read(file)
+		for k,v in config.items(sec):
+			if k == key:
+				print v
+	except:
+		pass
+
+if __name__ == '__main__':
+	main()

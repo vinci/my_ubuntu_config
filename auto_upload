@@ -1,0 +1,38 @@
+#! /bin/sh
+
+CONFIG_FILE=$HOME/.github
+if [ -f $CONFIG_FILE ]; then
+	export PATH=$PATH:$HOME/script
+else
+	read -p "user.id: " ID
+	read -p "user.repo : " REPO
+	stty -echo
+	read -p "user.passwd: " PASSWD
+	stty echo
+	echo
+	REPO=$REPO".git"
+	printf "[user]\n" >> $CONFIG_FILE
+	printf "id=$ID\n" >> $CONFIG_FILE
+	printf "passwd=$PASSWD\n" >> $CONFIG_FILE
+	printf "repo=$REPO\n" >> $CONFIG_FILE
+fi
+
+ID=$(./read_inif $CONFIG_FILE user id)
+REPO=$(./read_inif $CONFIG_FILE user repo)
+PASSWD=$(./read_inif $CONFIG_FILE user passwd)
+PUSH_URL=https://$ID:$PASSWD@github.com/$ID/$REPO
+
+git_upload() {
+	echo $1
+	cd $1
+	if [ ! -d .git ]; then
+		git init
+		echo $PUSH_URL
+		git remote add origin $PUSH_URL
+	fi
+	git add *
+	git commit -m "$(date)"
+	git push -u origin master
+}
+
+git_upload $HOME/script

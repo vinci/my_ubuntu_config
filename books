@@ -1,0 +1,5 @@
+#! /bin/sh
+
+BOOKS_PATH=~/文档/books
+cd $BOOKS_PATH
+tree >> $BOOKS_PATH/books.txt
