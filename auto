@@ -1,6 +1,5 @@
 #! /bin/sh
 
-pwd
 ./fix_input
 ./rm_not ~/下载 part
 ./books
