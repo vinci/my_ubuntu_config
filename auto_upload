@@ -23,7 +23,6 @@ PASSWD=$(./read_inif $CONFIG_FILE user passwd)
 PUSH_URL=https://$ID:$PASSWD@github.com/$ID/$REPO
 
 git_upload() {
-	echo $1
 	cd $1
 	if [ ! -d .git ]; then
 		git init

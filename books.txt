@@ -13,3 +13,10 @@
     └── 论可能生活（修订版）.pdf
 
 2 directories, 2 files
+/home/rob/文档
+├── Shell
+│   └── Shell脚本学习指南.pdf
+└── 哲学
+    └── 论可能生活（修订版）.pdf
+
+2 directories, 2 files
