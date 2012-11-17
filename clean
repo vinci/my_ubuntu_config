@@ -1,3 +1,3 @@
 #! /bin/sh
 
-./rm_not ~/下载 part
+./rm_not $HOME/下载 part
