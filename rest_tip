@@ -1,0 +1,9 @@
+#! /bin/sh
+
+MIN=30
+PERIOD=$(echo $MIN \* 60 | bc)
+# sleep $PERIOD
+
+for ;; do
+	echo 123
+done

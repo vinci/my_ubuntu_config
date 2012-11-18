@@ -1,3 +1,4 @@
 #! /bin/sh
 
 ./rm_not $HOME/下载 part
+rm -fr $(find / -name "war3.exe" 2>/dev/null | grep war3)
