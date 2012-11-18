@@ -17,6 +17,7 @@ def main():
 		if s != suffix:
 			if (os.path.isdir(fname)):
 				os.rmdir(fname)
-			os.remove(fname)
+			else:
+				os.remove(fname)
 if __name__ == '__main__':
 	main()
